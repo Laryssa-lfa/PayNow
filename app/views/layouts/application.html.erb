@@ -2,7 +2,12 @@
 <html>
   <head>
     <title>PayNow</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Laryssa_LFA">
+    <meta name="description" content="Projeto final da etapa 01 do Treina Dev \
+       - Turma 06. Esse projeto visa construir uma ferramenta de pagamentos com \
+       o minímo produto viável (MVP) em Ruby on Rails.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +16,24 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="<%= root_path %>">
+          <img src="app/assets/images/icon-Logotipo.png" alt="" width="50" height="50" class="d-inline-block align-text-center">
+          PayNow
+        </a>
+
+        <div class="d-inline-block">
+          <a class="navbar-brand align-text-right" href="<%= new_admin_session_path %>">
+            Área Administrativa</a>
+          <a class="navbar-brand align-text-right" href="<%= new_client_registration_path %>">
+            Registrar</a>
+          <a class="navbar-brand align-text-right" href="<%= new_client_session_path %>">
+            Entrar</a>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
