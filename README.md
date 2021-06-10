@@ -1,24 +1,19 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# PayNow
+Projeto final da etapa 01 do Treina Dev - Turma 06. Esse projeto visa construir uma ferramenta de pagamentos com o minímo produto viável (MVP) em Ruby on Rails.
 
-Things you may want to cover:
 
-* Ruby version
+## Dependências do Sistema
+ * Ruby versão 3.0.0
+ * Rails versão 6.1.3.2 
+ * Banco de dados SQLite
 
-* System dependencies
 
-* Configuration
+## Gems Utilizadas
+ - [Rspec](https://relishapp.com/rspec/rspec-rails/v/5-0/docs/gettingstarted) - para teste
+ - [Capybara](https://rubydoc.info/github/teamcapybara/capybara) - para teste
+ - [Devise](https://github.com/heartcombo/devise) - para autenticação
+ - [Bootstrap](https://getbootstrap.com/) - para font-end
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**OBS.: Projeto em desenvolvimento**
