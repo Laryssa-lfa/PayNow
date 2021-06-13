@@ -19,20 +19,49 @@
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="<%= root_path %>">
+          <!-- >
           <img src="app/assets/images/icon-Logotipo.png" alt="" width="50" height="50" class="d-inline-block align-text-center">
           PayNow
+          < -->
+          <h3>PayNow</h3>
         </a>
 
         <div class="d-inline-block">
-          <a class="navbar-brand align-text-right" href="<%= new_admin_session_path %>">
-            Área Administrativa</a>
-          <a class="navbar-brand align-text-right" href="<%= new_client_registration_path %>">
-            Registrar</a>
-          <a class="navbar-brand align-text-right" href="<%= new_client_session_path %>">
-            Entrar</a>
+          <% if client_signed_in? %>
+            <%= current_client.name %>
+            <%= link_to 'Sair', destroy_client_session_path, method: :delete %>
+          <% else %>
+            <a class="navbar-brand align-text-right" href="<%= new_client_session_path %>">
+              Entrar
+            </a>
+            <a class="navbar-brand align-text-right" href="<%= new_client_registration_path %>">
+              Registrar
+            </a>
+
+            <% if admin_signed_in? %>
+              <%= current_admin.name %>
+              <%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
+            <% else %>
+              <a class="navbar-brand align-text-right" href="<%= new_admin_session_path %>">
+                Área Administrativa
+              </a>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </nav>
+
+    <% if notice %>
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+    <% end %>
+    
+    <% if alert %>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>

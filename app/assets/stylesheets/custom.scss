@@ -11,11 +11,13 @@
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
 
-$primary: #6d6d6d;
-$secondary: #b9c2c4;
-$success: #4f8e71;
-$info: #9d9d9d;
-$warning: #947f57;
-$danger: #c0505a;
-$light: #e8e8e8;
-$dark: #3d3d3d;
+$theme-colors: (
+  $primary: #6d6d6d,
+  $secondary: #b9c2c4,
+  $success: #4f8e71,
+  $info: #9d9d9d,
+  $warning: #947f57,
+  $danger: #c0505a,
+  $light: #e8e8e8,
+  $dark: #3d3d3d
+);
