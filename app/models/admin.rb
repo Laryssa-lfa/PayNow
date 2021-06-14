@@ -7,5 +7,6 @@ class Admin < ApplicationRecord
   validates :email,
   format: { with: /(.+)@paynow.com.br/, message: "E-mail inválido"  },
             uniqueness: true,
+            presence: true,
             length: { minimum: 6, maximum: 254 }
 end

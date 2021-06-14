@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="author" content="Laryssa_LFA">
     <meta name="description" content="Projeto final da etapa 01 do Treina Dev \
-       - Turma 06. Esse projeto visa construir uma ferramenta de pagamentos com \
+       - Turma 06. Esse projeto visa construir uma ferramenta fictícia de pagamentos com \
        o minímo produto viável (MVP) em Ruby on Rails.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -30,6 +30,9 @@
           <% if client_signed_in? %>
             <%= current_client.name %>
             <%= link_to 'Sair', destroy_client_session_path, method: :delete %>
+          <% elsif admin_signed_in? %>
+            <%= current_admin.name %>
+            <%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
           <% else %>
             <a class="navbar-brand align-text-right" href="<%= new_client_session_path %>">
               Entrar
@@ -37,15 +40,9 @@
             <a class="navbar-brand align-text-right" href="<%= new_client_registration_path %>">
               Registrar
             </a>
-
-            <% if admin_signed_in? %>
-              <%= current_admin.name %>
-              <%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
-            <% else %>
-              <a class="navbar-brand align-text-right" href="<%= new_admin_session_path %>">
-                Área Administrativa
-              </a>
-            <% end %>
+            <a class="navbar-brand align-text-right" href="<%= new_admin_session_path %>">
+              Área Administrativa
+            </a>
           <% end %>
         </div>
       </div>

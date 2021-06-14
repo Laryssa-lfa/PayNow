@@ -4,3 +4,13 @@
   <br>
   <h3>Sistema de gestão de pagamentos</h3>
 </div>
+
+<% if admin_signed_in? %>
+  <div class="container">
+    <%= link_to 'Gerenciar Funcionários', admins_path %>
+    <br>
+    <%= link_to 'Gerenciar Clientes', '#' %>
+    <br>
+    <%= link_to 'Gerenciar Meios de Pagamento', '#' %>
+  </div>
+<% end %>

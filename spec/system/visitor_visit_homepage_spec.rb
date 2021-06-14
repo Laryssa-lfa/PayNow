@@ -10,5 +10,8 @@ describe 'Visitor visit homepage' do
     expect(page).to have_link('Área Administrativa')
     expect(page).to have_link('Registrar')
     expect(page).to have_link('Entrar')
+    expect(page).to_not have_link('Gerenciar Funcionários')
+    expect(page).to_not have_link('Gerenciar Clientes')
+    expect(page).to_not have_link('Gerenciar Meios de Pagamento')
   end
 end

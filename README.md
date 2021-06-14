@@ -1,6 +1,6 @@
 
 # PayNow
-Projeto final da etapa 01 do Treina Dev - Turma 06. Esse projeto visa construir uma ferramenta de pagamentos com o minímo produto viável (MVP) em Ruby on Rails.
+Projeto final da etapa 01 do Treina Dev - Turma 06. Esse projeto visa construir uma ferramenta fictícia de pagamentos com o minímo produto viável (MVP) em Ruby on Rails.
 
 
 ## Dependências do Sistema
