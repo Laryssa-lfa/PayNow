@@ -6,11 +6,12 @@ describe 'Admin registers admins' do
                             occupation: 'Gerente', password: '123456')
 
     login_as manager, scope: 'admin'
-    visit admins_path
+    visit employee_admins_path
     click_on 'Registrar Funcionários'
     fill_in 'Nome', with: 'Paulo'
     fill_in 'E-mail', with: 'paulo@paynow.com.br'
     fill_in 'Função', with: 'Desenvolvedor'
+    fill_in 'Senha', with: '123456'
     click_on 'Criar Funcionário'
 
     expect(page).to have_content('Paulo')
@@ -31,8 +32,8 @@ describe 'Admin registers admins' do
     click_on 'Registrar Funcionários'
     click_on 'Criar Funcionário'
 
-    expect(page).to have_content('não pode ficar em branco', count: 1)
-    expect(page).to have_content('E-mail é obrigatório')
+    expect(page).to have_content('não pode ficar em branco')
+    expect(page).to have_content('é obrigatório')
   end
 
   it 'and email must be unique' do
@@ -42,11 +43,12 @@ describe 'Admin registers admins' do
                   occupation: 'Desenvolvedor', password: '654321')
 
     login_as manager, scope: 'admin'
-    visit admins_path
+    visit employee_admins_path
     click_on 'Registrar Funcionários'
     fill_in 'Nome', with: 'Paulo'
     fill_in 'E-mail', with: 'paulo@paynow.com.br'
     fill_in 'Função', with: 'Desenvolvedor'
+    fill_in 'Senha', with: '123456'
     click_on 'Criar Funcionário'
     
     expect(page).to have_content('já está em uso')

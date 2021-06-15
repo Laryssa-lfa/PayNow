@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class Employee::AdminsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_admin, only: %i[show edit update destroy]
 
@@ -16,9 +16,9 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     if @admin.save
-        redirect_to @admin, notice: t('.success')
+      redirect_to employee_admin_path(@admin), notice: t('.success')
     else
-        render :new
+      render :new
     end
   end
 

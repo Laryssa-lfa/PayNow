@@ -1,0 +1,11 @@
+<div class="container">
+  <br>
+  <%= link_to 'Registrar Funcionários', new_employee_admin_path, class: "btn btn-dark" %>
+  
+  <h1>Funcionários da PayNow</h1>
+
+  <% @admins.each do |admin| %>
+    <h4><%= link_to admin.name, employee_admin_path(admin) %></h4>
+    <br>
+  <% end %>
+</div>

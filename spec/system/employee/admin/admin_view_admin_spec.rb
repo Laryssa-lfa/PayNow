@@ -11,10 +11,10 @@ describe 'Admin view other admins' do
     visit root_path
     click_on 'Gerenciar Funcionários'
 
-    expect(current_path).to eq(admins_path)
-    expect(page).to have_link('Registrar Funcionários', href: new_admin_path)
-    expect(page).to have_link('Jane', href: admin_path(admin))
-    expect(page).to have_link('Paulo', href: admin_path(funcionario))
+    expect(current_path).to eq(employee_admins_path)
+    expect(page).to have_link('Registrar Funcionários', href: new_employee_admin_path)
+    expect(page).to have_link('Jane', href: employee_admin_path(admin))
+    expect(page).to have_link('Paulo', href: employee_admin_path(funcionario))
   end
 
   it 'and view details' do
@@ -28,7 +28,7 @@ describe 'Admin view other admins' do
     click_on 'Gerenciar Funcionários'
     click_on 'Paulo'
 
-    expect(current_path).to eq(admin_path(funcionario))
+    expect(current_path).to eq(employee_admin_path(funcionario))
     expect(page).to have_content(funcionario.name)
     expect(page).to have_content(funcionario.email)
     expect(page).to have_content(funcionario.occupation)

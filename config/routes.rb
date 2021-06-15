@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   devise_for :clients
   devise_for :admins
 
-  resources :admins
+  namespace :employee do
+    resources :admins
+  end
 end

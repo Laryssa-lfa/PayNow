@@ -1,0 +1,13 @@
+<div class="container">
+  <br>
+  <h4><%= @admin.name %></h4>
+  <h4><%= @admin.email %></h4>
+  <h4><%= @admin.occupation %></h4>
+  <br>
+
+  <%= link_to 'Editar', edit_employee_admin_path(@admin), class: "btn btn-dark" %>
+  <br>
+  <%= link_to 'Apagar', employee_admin_path(@admin), method: :delete, class: "btn btn-dark" %>
+  <br>
+  <%= link_to 'Voltar', employee_admins_path, class: "btn btn-dark" %>
+</div>
