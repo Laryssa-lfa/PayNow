@@ -1,0 +1,39 @@
+---
+  pt-BR:
+    employee:
+      admin:
+        create:
+          success: 'Funcionário(a) criado com sucesso'
+        update:
+          success: 'Funcionário(a) atualizado com sucesso'
+        destroy:
+          success: 'Funcionário(a) apagado com sucesso'
+
+        activerecord:
+          models:
+            admin:
+              one: 'Funcionário(a)'
+              other: 'Funcionários(as)'
+          attributes:
+            email: "E-mail"
+            password: 'Senha'
+            remember_me: "Lembrar"
+
+        devise:
+          passwords:
+            edit:
+              password: 'Senha'
+              password_confirmation: 'Confirmação de Senha'
+
+          registrations:
+            new:
+              password: 'Senha'
+              password_confirmation: 'Confirmação de Senha'
+            edit:
+              password: 'Senha'
+              password_confirmation: 'Confirmação de Senha'
+
+          sessions:
+            new:
+              password: 'Senha'
+              remember_me: 'Lembrar'

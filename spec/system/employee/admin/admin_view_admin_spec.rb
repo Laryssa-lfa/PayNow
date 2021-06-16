@@ -9,10 +9,10 @@ describe 'Admin view other admins' do
 
     login_as admin, scope: 'admin'
     visit root_path
-    click_on 'Gerenciar Funcionários'
+    click_on 'Gerenciar Funcionários(as)'
 
     expect(current_path).to eq(employee_admins_path)
-    expect(page).to have_link('Registrar Funcionários', href: new_employee_admin_path)
+    expect(page).to have_link('Registrar Funcionário(a)', href: new_employee_admin_path)
     expect(page).to have_link('Jane', href: employee_admin_path(admin))
     expect(page).to have_link('Paulo', href: employee_admin_path(funcionario))
   end
@@ -25,7 +25,7 @@ describe 'Admin view other admins' do
 
     login_as admin, scope: 'admin'
     visit root_path
-    click_on 'Gerenciar Funcionários'
+    click_on 'Gerenciar Funcionários(as)'
     click_on 'Paulo'
 
     expect(current_path).to eq(employee_admin_path(funcionario))
@@ -45,13 +45,13 @@ describe 'Admin view other admins' do
 
     login_as admin, scope: 'admin'
     visit root_path
-    click_on 'Gerenciar Funcionários'
+    click_on 'Gerenciar Funcionários(as)'
     click_on 'Paulo'
     click_on 'PayNow'
 
     expect(current_path).to eq root_path
     expect(page).to have_content(admin.name)
-    expect(page).to have_link('Gerenciar Funcionários')
+    expect(page).to have_link('Gerenciar Funcionários(as)')
     expect(page).to have_link('Gerenciar Clientes')
     expect(page).to have_link('Gerenciar Meios de Pagamento')
   end

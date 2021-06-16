@@ -5,8 +5,8 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email,
-  format: { with: /(.+)@paynow.com.br/, message: "E-mail inválido"  },
+  format: { with: /(.+)@paynow.com.br/, message: "inválido"  },
             uniqueness: true,
             presence: true,
-            length: { minimum: 6, maximum: 254 }
+            length: { minimum: 4, maximum: 254 }
 end

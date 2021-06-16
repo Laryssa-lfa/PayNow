@@ -3,14 +3,13 @@
   <h1>PayNow</h1>
   <br>
   <h3>Sistema de gestão de pagamentos</h3>
-</div>
+  <br><br>
 
-<% if admin_signed_in? %>
-  <div class="container">
-    <%= link_to 'Gerenciar Funcionários', employee_admins_path %>
-    <br>
-    <%= link_to 'Gerenciar Clientes', '#' %>
-    <br>
-    <%= link_to 'Gerenciar Meios de Pagamento', '#' %>
-  </div>
-<% end %>
+  <% if admin_signed_in? %>
+    <div class="container">
+      <%= link_to 'Gerenciar Funcionários(as)', employee_admins_path, class: "btn btn-dark" %>
+      <%= link_to 'Gerenciar Clientes', '#', class: "btn btn-dark" %>
+      <%= link_to 'Gerenciar Meios de Pagamento', '#', class: "btn btn-dark" %>
+    </div>
+  <% end %>
+</div>

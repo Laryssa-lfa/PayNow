@@ -27,18 +27,18 @@ class Employee::AdminsController < ApplicationController
 
   def update
     @admin.update(admin_params)
-    redirect_to @admin, notice: t('.success')
+    redirect_to employee_admin_path(@admin), notice: t('.success')
   end
 
   def destroy
     @admin.destroy
-    redirect_to admins_path, notice: t('.success')
+    redirect_to employee_admins_path, notice: t('.success')
   end
 
   private
 
   def admin_params
-    params.require(:admin).permit(:name, :email, :occupation)
+    params.require(:admin).permit(:name, :email, :occupation, :password)
   end
 
   def set_admin
