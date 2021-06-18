@@ -1,0 +1,22 @@
+<div class="container">
+  <% if @cards.empty? %>
+    <h2>Nenhum Cartão Encontrado</h2>
+  <% else %>
+    <h2>Cartões Encontrados</h2>
+  <% end %>
+
+  <ul>
+    <% @cards.each do |card| %>
+      <div>
+        <li>Bandeira do Cartão: <%= card.card_name %></li>
+        <li>Código do Cartão: <%= card.code %></li>
+        <li>Taxa: <%= number_to_percentage card.rate, precision: 2 %></li>
+        <li>Status: <%= card.status ? 'Ativado' : 'Desativado' %></li>
+      </div>
+      <br>
+      <p><%= link_to 'Editar', edit_card_path(card), class: "btn btn-dark" %></p>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to 'Voltar', search_payment_path, class: "btn btn-dark" %>
+</div>

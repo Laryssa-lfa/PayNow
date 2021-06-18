@@ -1,0 +1,26 @@
+<% if card.errors.any? %>
+  <div id = "error_explanation">
+    <ul>
+      <% card.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: card, html: { class: 'form-control' } do |form| %>
+  <div class="field">
+    <%= form.label :carde_name, 'Bandeira do Cartão' %>
+    <%= form.text_field :carde_name %>
+  </div>
+  <div class="field">
+    <%= form.label :bank_agency, 'Código do Cartão' %>
+    <%= form.text_field :bank_agency %>
+  </div>
+  <div class="field">
+    <%= form.label :rate, 'Taxa' %>
+    <%= form.text_field :rate %>
+  </div>
+  <br>
+  <%= form.submit button_text, class: "btn btn-dark" %>
+<% end %>

@@ -1,0 +1,18 @@
+---
+  pt-BR:
+    card:
+      create:
+        success: 'Cartão de Crédito criado com sucesso'
+        alert: 'Cartão de Crédito não criado'
+      update:
+        success: 'Cartão de Crédito atualizado com sucesso'
+
+    activerecord:
+      models:
+        card: 'Cartão de Crédito'
+      attributes:
+        card:
+          card_name: 'Bandeira do Cartão'
+          rate: 'Taxa'
+          status: 'Status'
+          code: 'Código do Cartão'

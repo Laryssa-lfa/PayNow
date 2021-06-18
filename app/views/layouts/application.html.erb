@@ -25,11 +25,11 @@
 
         <div class="d-inline-block">
           <% if client_signed_in? %>
-            <%= current_client.name %>
+            <h5 class="btn btn-dark"><%= current_client.name %></h5>
             <%= link_to 'Sair', destroy_client_session_path, method: :delete %>
           <% elsif admin_signed_in? %>
-            <%= current_admin.name %>
-            <%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
+            <h5 class="btn btn-dark"><%= current_admin.name %></h5>
+            <h5><%= link_to 'Sair', destroy_admin_session_path, method: :delete, class: 'btn btn-dark' %></h5>
           <% else %>
             <a class="navbar-brand align-text-right" href="<%= new_client_session_path %>">
               Entrar

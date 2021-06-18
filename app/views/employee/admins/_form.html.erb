@@ -1,36 +1,36 @@
 <div class="container">
   
-<% if admin.errors.any? %>
-  <div id = "error_explanation">
-    <ul>
-      <% admin.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if admin.errors.any? %>
+    <div id = "error_explanation">
+      <ul>
+        <% admin.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= form_with model: [:employee, admin], html: { class: 'form-control' } do |form| %>
-  <div class="field">
-    <%= form.label :name, 'Nome' %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="field">
-    <%= form.label :email, 'E-mail' %>
-    <%= form.text_field :email %>
-  </div>
-  <div class="field">
-    <%= form.label :occupation, 'Função' %>
-    <%= form.text_field :occupation %>
-  </div>
-  <div class="field">
-    <%= form.label :password, 'Senha' %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
-    <% end %>
-    <%= form.password_field :password %>
-  </div>
-  <br>
-  <%= form.submit button_text, class: "btn btn-dark" %>
-<% end %>
+  <%= form_with model: [:employee, admin], html: { class: 'form-control' } do |form| %>
+    <div class="field">
+      <%= form.label :name, 'Nome' %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label :email, 'E-mail' %>
+      <%= form.text_field :email %>
+    </div>
+    <div class="field">
+      <%= form.label :occupation, 'Função' %>
+      <%= form.text_field :occupation %>
+    </div>
+    <div class="field">
+      <%= form.label :password, 'Senha' %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
+      <% end %>
+      <%= form.password_field :password %>
+    </div>
+    <br>
+    <%= form.submit button_text, class: "btn btn-dark" %>
+  <% end %>
 </div>

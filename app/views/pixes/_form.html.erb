@@ -1,0 +1,26 @@
+<% if pix.errors.any? %>
+  <div id = "error_explanation">
+    <ul>
+      <% pix.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: pix, html: { class: 'form-control' } do |form| %>
+  <div class="field">
+    <%= form.label :code, 'Chave PIX' %>
+    <%= form.text_field :code %>
+  </div>
+  <div class="field">
+    <%= form.label :bank_code, 'Código do Banco' %>
+    <%= form.text_field :bank_code %>
+  </div>
+  <div class="field">
+    <%= form.label :rate, 'Taxa' %>
+    <%= form.text_field :rate %>
+  </div>
+  <br>
+  <%= form.submit button_text, class: "btn btn-dark" %>
+<% end %>

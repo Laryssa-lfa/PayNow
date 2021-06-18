@@ -1,0 +1,23 @@
+<div class="container">
+  <% if @boletos.empty? %>
+    <h2>Nenhum Boleto Encontrado</h2>
+  <% else %>
+    <h2>Boletos Encontrados</h2>
+  <% end %>
+
+  <ul>
+    <% @boletos.each do |boleto| %>
+      <div>
+        <li>Código do Banco: <%= boleto.bank_code %></li>
+        <li>Agência Bancária: <%= boleto.bank_agency %></li>
+        <li>Conta Bancária: <%= boleto.bank_account %></li>
+        <li>Taxa: <%= number_to_percentage boleto.rate, precision: 2 %></li>
+        <li>Status: <%= boleto.status ? 'Ativado' : 'Desativado' %></li>
+      </div>
+      <br>
+      <p><%= link_to 'Editar', edit_boleto_path(boleto), class: "btn btn-dark" %></p>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to 'Voltar', search_payment_path, class: "btn btn-dark" %>
+</div>

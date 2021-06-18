@@ -1,7 +1,7 @@
 ---
   pt-BR:
     employee:
-      admin:
+      admins:
         create:
           success: 'Funcionário(a) criado com sucesso'
         update:

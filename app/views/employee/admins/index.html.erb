@@ -6,8 +6,7 @@
     <h1>Funcionários da PayNow</h1>
 
     <% @admins.each do |admin| %>
-      <h4><%= link_to admin.name, employee_admin_path(admin) %></h4>
-      <br>
+      <h4><%= link_to admin.name, employee_admin_path(admin), class: "text-dark" %></h4>
     <% end %>
   </div>
 </div>

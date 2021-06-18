@@ -1,0 +1,22 @@
+<div class="container">
+  <% if @pixes.empty? %>
+    <h2>Nenhum PIX Encontrado</h2>
+  <% else %>
+    <h2>PIX Encontrados</h2>
+  <% end %>
+
+  <ul>
+    <% @pixes.each do |pix| %>
+      <div>
+        <li>Chave PIX: <%= pix.code %></li>
+        <li>Código do Banco: <%= pix.bank_code %></li>
+        <li>Taxa: <%= number_to_percentage pix.rate, precision: 2 %></li>
+        <li>Status: <%= pix.status ? 'Ativado' : 'Desativado' %></li>
+      </div>
+      <br>
+      <p><%= link_to 'Editar', edit_pix_path(pix), class: "btn btn-dark" %></p>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to 'Voltar', search_payment_path, class: "btn btn-dark" %>
+</div>

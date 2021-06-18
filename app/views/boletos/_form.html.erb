@@ -1,0 +1,30 @@
+<% if boleto.errors.any? %>
+  <div id = "error_explanation">
+    <ul>
+      <% boleto.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: boleto, html: { class: 'form-control' } do |form| %>
+  <div class="field">
+    <%= form.label :bank_code, 'Código do Banco' %>
+    <%= form.text_field :bank_code %>
+  </div>
+  <div class="field">
+    <%= form.label :bank_agency, 'Agência Bancária' %>
+    <%= form.text_field :bank_agency %>
+  </div>
+  <div class="field">
+    <%= form.label :bank_account, 'Conta Bancária' %>
+    <%= form.text_field :bank_account %>
+  </div>
+  <div class="field">
+    <%= form.label :rate, 'Taxa' %>
+    <%= form.text_field :rate %>
+  </div>
+  <br>
+  <%= form.submit button_text, class: "btn btn-dark" %>
+<% end %>

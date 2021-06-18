@@ -4,6 +4,10 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :boletos
+  has_many :cards
+  has_many :pixes
+
   validates :email,
   format: { with: /(.+)@paynow.com.br/, message: "inválido"  },
             uniqueness: true,

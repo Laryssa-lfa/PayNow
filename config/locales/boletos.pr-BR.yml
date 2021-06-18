@@ -1,0 +1,20 @@
+---
+  pt-BR:
+    boleto:
+      create:
+        success: 'Boleto cradastrado com sucesso'
+        alert: 'Boleto não cadastrado'
+      update:
+        success: 'Boleto atualizado com sucesso'
+        alert: 'Boleto não cadastrado'
+
+    activerecord:
+      model:
+        boleto: 'Boleto Bancário'
+      attributes:
+        boleto:
+          rate: 'Taxa'
+          status: 'Status'
+          bank_code: 'Código do Banco'
+          bank_agency: 'Agência Bancária'
+          bank_account: 'Conta Bancária'

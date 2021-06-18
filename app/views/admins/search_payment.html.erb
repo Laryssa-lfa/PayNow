@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Gerenciar Meios de Pagamento</h2>
+  <br>
+  
+  <div class="d-inline-block">
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+        <h4 class="card-title">Boleto Bancário</h4>
+        <%= link_to 'Pesquisar Boleto', boletos_path, class: "btn btn-dark btn-sm" %>
+        <%= link_to 'Cadastrar Boleto', new_boleto_path, class: "btn btn-dark btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-inline-block">
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+        <h4 class="card-title">Cartão de Crédito</h4>
+        <%= link_to 'Pesquisar Cartão', cards_path, class: "btn btn-dark btn-sm" %>
+        <%= link_to 'Cadastrar Cartão', new_card_path, class: "btn btn-dark btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-inline-block">
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+        <h4 class="card-title">PIX</h4>
+        <%= link_to 'Pesquisar PIX', pixes_path, class: "btn btn-dark btn-sm" %>
+        <%= link_to 'Cadastrar PIX', new_pix_path, class: "btn btn-dark btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+</div>

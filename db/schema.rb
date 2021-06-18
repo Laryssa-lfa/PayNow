@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_013223) do
+ActiveRecord::Schema.define(version: 2021_06_16_043150) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +26,29 @@ ActiveRecord::Schema.define(version: 2021_06_14_013223) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "boletos", force: :cascade do |t|
+    t.decimal "rate"
+    t.integer "bank_code"
+    t.integer "bank_agency"
+    t.integer "bank_account"
+    t.boolean "status", default: false, null: false
+    t.integer "admin_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_boletos_on_admin_id"
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string "card_name"
+    t.string "code"
+    t.decimal "rate"
+    t.boolean "status", default: false, null: false
+    t.integer "admin_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_cards_on_admin_id"
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,4 +62,18 @@ ActiveRecord::Schema.define(version: 2021_06_14_013223) do
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
+  create_table "pixes", force: :cascade do |t|
+    t.decimal "rate"
+    t.string "code"
+    t.integer "bank_code"
+    t.boolean "status", default: false, null: false
+    t.integer "admin_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_pixes_on_admin_id"
+  end
+
+  add_foreign_key "boletos", "admins"
+  add_foreign_key "cards", "admins"
+  add_foreign_key "pixes", "admins"
 end
