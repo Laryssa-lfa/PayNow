@@ -1,0 +1,40 @@
+<div class="container">
+  <br>
+  <% if current_client.admin? %>
+    <% if @company.errors.any? %>
+      <div id = "error_explanation" class="alert alert-danger">
+        <ul>
+          <% @company.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h1>Registrando Empresa</h1>
+    <br>
+    <%= form_with model: [:admin_client, @company], html: { class: 'form-control' } do |form| %>
+      <div class="field">
+        <%= form.label :corporate_name, 'Razão Social' %>
+        <%= form.text_field :corporate_name %>
+      </div>
+      <div class="field">
+        <%= form.label :cnpj, 'CNPJ' %>
+        <%= form.text_field :cnpj %>
+      </div>
+      </div>
+      <div class="field">
+        <%= form.label :address, 'Endereço' %>
+        <%= form.text_field :address %>
+      </div>
+      <div class="field">
+        <%= form.label :email, 'E-mail' %>
+        <%= form.text_field :email %>
+      </div>
+      <br>
+      <%= form.submit "Registrar Empresa", class: "btn btn-dark" %>
+    <% end %>
+  <% else %>
+    <h3>Acesso apenas pelo Administrador</h3>
+  <% end %>
+</div>

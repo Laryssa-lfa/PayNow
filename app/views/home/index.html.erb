@@ -8,8 +8,25 @@
   <% if admin_signed_in? %>
     <div class="container">
       <%= link_to 'Gerenciar Funcionários(as)', employee_admins_path, class: "btn btn-dark" %>
-      <%= link_to 'Gerenciar Clientes', '#', class: "btn btn-dark" %>
+      <%= link_to 'Gerenciar Clientes', employee_companies_path, class: "btn btn-dark" %>
       <%= link_to 'Gerenciar Meios de Pagamento', search_payment_path, class: "btn btn-dark" %>
+    </div>
+  <% end %>
+
+  <% if client_signed_in? %>
+    <div class="container">
+      <%= link_to 'Consultar Cobranças', '#', class: "btn btn-dark" %>
+      <%= link_to 'Cadastrar Produtos', '#', class: "btn btn-dark" %>
+      <%= link_to 'Meios de Pagamento', '#', class: "btn btn-dark" %>
+
+      <% if Client.exists?(1) %>
+        <% current_client.admin! %>
+        <%= link_to 'Cadastrar Empresa', new_admin_client_company_path, class: "btn btn-dark" %>
+      <% end %>
+
+      <% if current_client.admin? %>
+        <%= link_to 'Gerenciar Funcionários(as)', admin_client_clients_path, class: "btn btn-dark" %>
+      <% end %>
     </div>
   <% end %>
 </div>

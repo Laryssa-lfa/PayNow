@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   namespace :employee do
     resources :admins
+    resources :companies, only: %i[index show edit update]
+  end
+  
+  namespace :admin_client do
+    resources :companies, only: %i[new create show]
+    resources :clients
   end
 
   resources :boletos, only: %i[index new create edit update search_boleto]

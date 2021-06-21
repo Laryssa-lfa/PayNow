@@ -1,0 +1,13 @@
+<div class="container">
+  <br>
+
+  <% if current_client.admin? %>
+    <h2>Registrando um Funcionário(a)</h2>
+    <br>
+
+    <%= render 'form', client: @client, button_text: 'Registrar Funcionário(a)' %>
+  <% else %>
+    <h3>Acesso apenas pelo Administrador</h3>
+  <% end %>
+
+</div>

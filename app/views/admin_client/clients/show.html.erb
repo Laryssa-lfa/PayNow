@@ -1,0 +1,17 @@
+<div class="container">
+  <br>
+  <% if current_client.admin? %>
+    <div class="form-control">
+      <h5>Nome: <%= @client.name %></h5>
+      <h5>E-mail: <%= @client.email %></h5>
+
+        <div class="d-inline-block">
+          <%= link_to 'Editar', edit_admin_client_client_path(@client), class: "btn btn-dark" %>
+          <%= link_to 'Apagar', admin_client_client_path(@client), method: :delete, class: "btn btn-dark" %>
+          <%= link_to 'Voltar', admin_client_clients_path, class: "btn btn-dark" %>
+        </div>
+    </div>
+  <% else %>
+    <h3>Acesso apenas pelo Administrador</h3>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <br>
+  
+  <% if current_client.admin? %>
+    <%= link_to 'Registrar Funcionário(a)', new_admin_client_client_path, class: "btn btn-dark" %>
+    
+    <div class="form-control">
+      <h1>Funcionários</h1>
+
+      <% @clients.each do |client| %>
+        <h4><%= link_to client.name, admin_client_client_path(client), class: "text-dark" %></h4>
+      <% end %>
+    </div>
+  <% else %>
+    <h3>Acesso apenas pelo Administrador</h3>
+  <% end %>
+
+</div>

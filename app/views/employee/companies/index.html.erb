@@ -1,0 +1,24 @@
+<div class="container">
+  <br>
+  <div class="form-control">
+    <% if @companies.empty? %>
+      <h3>Nenhuma Empresa Disponível</h3>
+    <% else %>
+      <h3>Empresas Disponíveis</h3>
+    <% end %>
+
+    <% @companies.each do |company| %>
+      <div class="d-inline-block">
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= company.corporate_name %></h5>
+            <%= link_to 'Renovar Token', '#', class: "btn btn-dark btn-sm" %>
+            <%= link_to 'Suspender', '#', class: "btn btn-dark btn-sm" %>
+            <%= link_to 'Editar', edit_employee_company_path(company), class: "btn btn-dark btn-sm" %>
+            <%= link_to 'Detalhes', employee_company_path(company), class: "btn btn-dark btn-sm" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

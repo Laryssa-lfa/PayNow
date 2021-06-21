@@ -50,7 +50,7 @@ describe 'Admin view other admins' do
     click_on 'PayNow'
 
     expect(current_path).to eq root_path
-    expect(page).to have_content(admin.name)
+    expect(page).to have_content(admin.email)
     expect(page).to have_link('Gerenciar Funcionários(as)')
     expect(page).to have_link('Gerenciar Clientes')
     expect(page).to have_link('Gerenciar Meios de Pagamento')

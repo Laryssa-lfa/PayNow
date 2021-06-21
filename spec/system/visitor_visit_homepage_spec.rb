@@ -13,5 +13,9 @@ describe 'Visitor visit homepage' do
     expect(page).to_not have_link('Gerenciar Funcionários(as)')
     expect(page).to_not have_link('Gerenciar Clientes')
     expect(page).to_not have_link('Gerenciar Meios de Pagamento')
+    expect(page).to_not have_link('Consultar Cobranças')
+    expect(page).to_not have_link('Cadastrar Produtos')
+    expect(page).to_not have_link('Meios de Pagamento')
+    expect(page).to_not have_link('Gerenciar Funcionários(as)')
   end
 end

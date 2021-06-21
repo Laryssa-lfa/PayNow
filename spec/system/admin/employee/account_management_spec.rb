@@ -15,7 +15,7 @@ describe 'Account Management' do
 
       #expect(page).to have_text('Login efetuado com sucesso')
       expect(page).to have_text('Signed in successfully')
-      expect(page).to have_text('Jane')
+      expect(page).to have_text('jane@paynow.com.br')
       expect(current_path).to eq(root_path)
       expect(page).to_not have_link('Área Administrativa')
       expect(page).to have_link('Sair')
@@ -47,7 +47,7 @@ describe 'Account Management' do
 
       #expect(page).to have_text('Saiu com sucesso')
       expect(page).to have_text('Signed out successfully')
-      expect(page).to_not have_text('Jane')
+      expect(page).to_not have_text('jane@paynow.com.br')
       expect(current_path).to eq(root_path)
       expect(page).to have_link('Entrar')
       expect(page).to have_link('Registrar')

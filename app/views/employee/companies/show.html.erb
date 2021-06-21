@@ -1,0 +1,27 @@
+<div class="container">
+  <br>
+  <div class="form-control">
+    <h3>
+      Detalhes <small class="text-muted"><%= @company.corporate_name %></small>
+    </h3>
+    
+    <dl class="row">
+      <dt class="col-sm-3">CNPJ</dt>
+      <dd class="col-sm-9"><%= @company.cnpj %></dd>
+
+      <dt class="col-sm-3">Endereço</dt>
+      <dd class="col-sm-9"><%= @company.address %></dd>
+      
+      <dt class="col-sm-3">E-mail</dt>
+      <dd class="col-sm-9"><%= @company.email %></dd>
+      
+      <dt class="col-sm-3">Status</dt>
+      <dd class="col-sm-9"><%= @company.view_status %></dd>
+
+      <dt class="col-sm-3">Token</dt>
+      <dd class="col-sm-9"><%= @company.token %></dd>
+    </dl>
+  </div>
+  <br>
+  <%= link_to 'Voltar', employee_companies_path, class: "btn btn-dark" %>
+</div>
