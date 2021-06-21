@@ -18,8 +18,9 @@ class AdminClient::CompaniesController < ApplicationController
     @client = current_client
     @company = Company.new(company_params)
     @company.client_id = @client.id
+    @company.status = true
+
     if @company.save
-      @company.status = true
       redirect_to admin_client_company_path(@company), notice: "Empresa cadastrada com sucesso"
     else
       render :new, alert: "Empresa não cadastrada"

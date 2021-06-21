@@ -6,7 +6,7 @@ describe 'Admin view companies' do
                           occupation: 'Gerente', password: '123456')
     client = Client.create!(name: 'Maria', email: 'maria@codeplay.com.br',
                             password: '123456', role: 1)
-    company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902',
+    company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
 
@@ -27,7 +27,7 @@ describe 'Admin view companies' do
                           occupation: 'Gerente', password: '123456')
     client = Client.create!(name: 'Maria', email: 'maria@codeplay.com.br',
                             password: '123456', role: 1)
-    company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902',
+    company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
 
@@ -44,7 +44,7 @@ describe 'Admin view companies' do
     expect(page).to have_content('E-mail')
     expect(page).to have_content('sac@codeplay.com.br')
     expect(page).to have_content('Status')
-    #expect(page).to have_content('Empresa habilitada')
+    expect(page).to have_content('Empresa habilitada')
     expect(page).to have_content('Token')
     expect(page).to have_content('1a2s3d4f5g6h7j8k9l')
     expect(page).to have_link('Voltar')
@@ -55,7 +55,7 @@ describe 'Admin view companies' do
                           occupation: 'Gerente', password: '123456')
     client = Client.create!(name: 'Maria', email: 'maria@codeplay.com.br',
                             password: '123456', role: 1)
-    company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902',
+    company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
 
@@ -88,7 +88,7 @@ describe 'Admin view companies' do
                           occupation: 'Gerente', password: '123456')
     client = Client.create!(name: 'Maria', email: 'maria@codeplay.com.br',
                             password: '123456', role: 1)
-    company = Company.create!(corporate_name: 'Codplay', cnpj: '12345678902',
+    company = Company.create!(corporate_name: 'Codplay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
 

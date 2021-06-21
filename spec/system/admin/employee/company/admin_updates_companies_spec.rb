@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe 'Admin update companies' do
-  xit 'successfully' do
+  it 'successfully' do
     admin = Admin.create!(name: 'Jane', email: 'jane@paynow.com.br',
                           occupation: 'Gerente', password: '123456')
     client = Client.create!(name: 'Maria', email: 'maria@codeplay.com.br',
                             password: '123456', role: 1)
-    company = Company.create!(corporate_name: 'Codplay', cnpj: '12345678902',
+    company = Company.create!(corporate_name: 'Codplay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
 
@@ -19,7 +19,7 @@ describe 'Admin update companies' do
     fill_in 'Endereço', with: 'Rua Nova, N: 400'
     fill_in 'E-mail', with: 'sac@codeplay.com.br'
     click_on 'Editar Empresa'
-# TODO: Não entra no create do controller
+
     expect(current_path).to eq(employee_company_path(company))
     expect(page).to have_content('Detalhes CodePlay')
     expect(page).to have_text('CNPJ')
@@ -40,7 +40,7 @@ describe 'Admin update companies' do
                           occupation: 'Gerente', password: '123456')
     client = Client.create!(name: 'Maria', email: 'maria@codeplay.com.br',
                             password: '123456', role: 1)
-    company = Company.create!(corporate_name: 'Codplay', cnpj: '12345678902',
+    company = Company.create!(corporate_name: 'Codplay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
 
