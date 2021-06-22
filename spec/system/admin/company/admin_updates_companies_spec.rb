@@ -19,7 +19,7 @@ describe 'Admin update companies' do
     fill_in 'Endereço', with: 'Rua Nova, N: 400'
     fill_in 'E-mail', with: 'sac@codeplay.com.br'
     click_on 'Editar Empresa'
-
+    
     expect(current_path).to eq(employee_company_path(company))
     expect(page).to have_content('Detalhes CodePlay')
     expect(page).to have_text('CNPJ')
@@ -31,7 +31,7 @@ describe 'Admin update companies' do
     expect(page).to have_text('Status')
     expect(page).to have_text('Empresa habilitada')
     expect(page).to have_text('Token')
-    expect(page).to have_text('1a2s3d4f5g6h7j8k9l')
+    expect(page).to have_text(company.token)
     expect(page).to have_link('Voltar')
   end
 

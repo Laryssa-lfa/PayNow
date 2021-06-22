@@ -24,6 +24,7 @@
         <dd class="col-sm-9"><%= @company.token %></dd>
       </dl>
     </div>
+    <%= link_to 'Solicitar Novo Token', new_token_admin_client_company_path(@company), method: :put, class: "btn btn-dark" %>
   <% else %>
     <h3>Acesso apenas pelo Administrador</h3>
   <% end %>

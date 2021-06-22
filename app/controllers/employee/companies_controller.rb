@@ -1,6 +1,6 @@
 class Employee::CompaniesController < ApplicationController
   before_action :authenticate_admin!, only: %i[index show edit update]
-  before_action :set_company, only: %i[show edit update]
+  before_action :set_company, only: %i[show edit update new_token]
 
   def index
     @companies = Company.all
@@ -19,6 +19,8 @@ class Employee::CompaniesController < ApplicationController
     @client = current_client
     @company = Company.new(company_params)
     @company.client_id = @client.id
+    @company.status = true
+    @company.generate_token
     
     if @company.save
       @company.status = true
@@ -34,6 +36,12 @@ class Employee::CompaniesController < ApplicationController
   def update
     @company.update(company_params)
     redirect_to employee_company_path(@company), notice: "Empresa atualizada"
+  end
+
+  def new_token
+    @company.generate_token
+    @company.save
+    redirect_to employee_company_path(@company), notice: "Token atualizado"
   end
 
   private

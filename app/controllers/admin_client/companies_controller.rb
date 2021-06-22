@@ -1,5 +1,5 @@
 class AdminClient::CompaniesController < ApplicationController
-  before_action :authenticate_client!, only: %i[show new create]
+  before_action :authenticate_client!, only: %i[show new create new_token]
 
   def index
   end
@@ -19,6 +19,7 @@ class AdminClient::CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.client_id = @client.id
     @company.status = true
+    @company.generate_token
 
     if @company.save
       redirect_to admin_client_company_path(@company), notice: "Empresa cadastrada com sucesso"
@@ -31,6 +32,13 @@ class AdminClient::CompaniesController < ApplicationController
   end
 
   def update
+  end
+
+  def new_token
+    @company = Company.find(params[:id])
+    @company.generate_token
+    @company.save
+    redirect_to admin_client_company_path(@company), notice: "Token atualizado"
   end
 
   private

@@ -18,7 +18,9 @@ describe 'Account Management' do
       expect(page).to have_text('maria@codeplay.com.br')
       expect(current_path).to eq(root_path)
       expect(page).to_not have_link('Entrar')
-      expect(page).to_not have_link('Registrar')
+      within 'nav' do
+        expect(page).to_not have_link('Registrar')
+      end
       expect(page).to have_link('Sair')
     end
 

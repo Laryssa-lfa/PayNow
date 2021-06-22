@@ -18,10 +18,11 @@
       <%= link_to 'Consultar Cobranças', '#', class: "btn btn-dark" %>
       <%= link_to 'Cadastrar Produtos', '#', class: "btn btn-dark" %>
       <%= link_to 'Meios de Pagamento', '#', class: "btn btn-dark" %>
+      <%= link_to 'Perfil da Empresa', '#', class: "btn btn-dark" %>
 
       <% if Client.exists?(1) %>
         <% current_client.admin! %>
-        <%= link_to 'Cadastrar Empresa', new_admin_client_company_path, class: "btn btn-dark" %>
+        <%= link_to 'Registrar Empresa', new_admin_client_company_path, class: "btn btn-dark" %>
       <% end %>
 
       <% if current_client.admin? %>

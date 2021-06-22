@@ -35,7 +35,7 @@ describe 'Admin view companies' do
     visit employee_companies_path
     click_on 'Detalhes'
 
-    expect(current_path).to eq employee_company_path(company)
+    expect(current_path).to eq(employee_company_path(company))
     expect(page).to have_content('Detalhes CodePlay')
     expect(page).to have_content('CNPJ')
     expect(page).to have_content('12345678902')
@@ -46,7 +46,7 @@ describe 'Admin view companies' do
     expect(page).to have_content('Status')
     expect(page).to have_content('Empresa habilitada')
     expect(page).to have_content('Token')
-    expect(page).to have_content('1a2s3d4f5g6h7j8k9l')
+    expect(page).to have_content(company.token)
     expect(page).to have_link('Voltar')
   end
 
@@ -65,7 +65,7 @@ describe 'Admin view companies' do
     click_on 'Detalhes'
     click_on 'PayNow'
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq(root_path)
     expect(page).to have_content(admin.email)
     expect(page).to have_link('Gerenciar Funcionários(as)')
     expect(page).to have_link('Gerenciar Clientes')

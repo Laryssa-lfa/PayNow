@@ -6,11 +6,15 @@ Rails.application.routes.draw do
 
   namespace :employee do
     resources :admins
-    resources :companies, only: %i[index show edit update]
+    resources :companies, only: %i[index show edit update] do
+      put 'new_token', on: :member
+    end
   end
   
   namespace :admin_client do
-    resources :companies, only: %i[new create show]
+    resources :companies, only: %i[new create show] do
+      put 'new_token', on: :member
+    end
     resources :clients
   end
 
