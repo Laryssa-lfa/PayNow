@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :companies, only: %i[index show edit update] do
       put 'new_token', on: :member
     end
+    resources :change_history_to_companies, only: %i[index create show]
   end
   
   namespace :admin_client do

@@ -16,6 +16,7 @@
             <%= link_to 'Suspender', '#', class: "btn btn-dark btn-sm" %>
             <%= link_to 'Editar', edit_employee_company_path(company), class: "btn btn-dark btn-sm" %>
             <%= link_to 'Detalhes', employee_company_path(company), class: "btn btn-dark btn-sm" %>
+            <%= link_to 'Histórico de Alterações', controller: "employee/change_history_to_companies", query: "#{company.corporate_name}", class: "btn btn-dark btn-sm" %>
           </div>
         </div>
       </div>

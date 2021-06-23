@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_19_202748) do
+ActiveRecord::Schema.define(version: 2021_06_22_234856) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,6 +47,20 @@ ActiveRecord::Schema.define(version: 2021_06_19_202748) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_cards_on_admin_id"
+  end
+
+  create_table "change_history_to_companies", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "cnpj"
+    t.string "corporate_name"
+    t.string "address"
+    t.string "email"
+    t.string "token"
+    t.integer "client_id"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_change_history_to_companies_on_company_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -89,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_06_19_202748) do
 
   add_foreign_key "boletos", "admins"
   add_foreign_key "cards", "admins"
+  add_foreign_key "change_history_to_companies", "companies"
   add_foreign_key "companies", "clients"
   add_foreign_key "pixes", "admins"
 end

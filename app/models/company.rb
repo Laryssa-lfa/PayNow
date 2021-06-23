@@ -3,6 +3,8 @@ require 'securerandom'
 class Company < ApplicationRecord
   belongs_to :client
 
+  has_many :ChangeHistoryToCompanies
+
   validates :cnpj, :corporate_name, :address,
             :email, :token, presence: true
   validates :cnpj, :token,  :corporate_name, uniqueness: true

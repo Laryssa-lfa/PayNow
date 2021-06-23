@@ -1,0 +1,28 @@
+<div class="container">
+  <br>
+  
+  <% if @change_history_to_companies.empty? %>
+    <h2>Nenhum Histórico Disponível</h2>
+  <% else %>
+    <h2>Histórico de Alterações: <small class="text-muted"><%= @change_history_to_companies.corporate_name %></small></h2>
+  <% end %>
+
+  <% @change_history_to_companies.each do |company| %>
+    <div class="d-inline-block">
+      <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          
+          <h4>
+            <% if company.updated_at > company.created_at %>
+              Alterado em: <%= I18n.localize company.updated_at %>
+            <% else %>
+              Alterado em: <%= I18n.localize company.created_at %>
+            <% end %>
+          </h4>
+          
+          <%= link_to 'Detalhes', employee_change_history_to_company_path(company), class: "btn btn-dark btn-sm" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

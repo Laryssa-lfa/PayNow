@@ -21,7 +21,8 @@ class Employee::CompaniesController < ApplicationController
     @company.client_id = @client.id
     @company.status = true
     @company.generate_token
-    
+    @change_history_to_company = ChangeHistoryToCompany.create(@company)
+
     if @company.save
       @company.status = true
       redirect_to employee_company_path(@company), notice: "Empresa cadastrada"
