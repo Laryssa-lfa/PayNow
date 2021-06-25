@@ -30,7 +30,6 @@ describe 'Admin search boleto' do
     expect(page).to have_content('3.00%')
     expect(page).to have_content('Status')
     expect(page).to have_content('Ativado')
-    expect(page).to have_link('Editar')
     expect(page).to have_link('Voltar')
     expect(page).to_not have_content('033')
     expect(page).to_not have_content('185')

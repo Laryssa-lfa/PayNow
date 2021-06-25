@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   namespace :admin_client do
     resources :companies, only: %i[new create show] do
       put 'new_token', on: :member
+      get 'payment_method', on: :collection
     end
     resources :clients
   end

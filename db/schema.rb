@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_234856) do
+ActiveRecord::Schema.define(version: 2021_06_24_195940) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -90,6 +90,19 @@ ActiveRecord::Schema.define(version: 2021_06_22_234856) do
     t.index ["client_id"], name: "index_companies_on_client_id"
   end
 
+  create_table "payment_methods", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "boleto_id", null: false
+    t.integer "card_id", null: false
+    t.integer "pix_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["boleto_id"], name: "index_payment_methods_on_boleto_id"
+    t.index ["card_id"], name: "index_payment_methods_on_card_id"
+    t.index ["company_id"], name: "index_payment_methods_on_company_id"
+    t.index ["pix_id"], name: "index_payment_methods_on_pix_id"
+  end
+
   create_table "pixes", force: :cascade do |t|
     t.decimal "rate"
     t.string "code"
@@ -105,5 +118,9 @@ ActiveRecord::Schema.define(version: 2021_06_22_234856) do
   add_foreign_key "cards", "admins"
   add_foreign_key "change_history_to_companies", "companies"
   add_foreign_key "companies", "clients"
+  add_foreign_key "payment_methods", "boletos"
+  add_foreign_key "payment_methods", "cards"
+  add_foreign_key "payment_methods", "companies"
+  add_foreign_key "payment_methods", "pixes"
   add_foreign_key "pixes", "admins"
 end

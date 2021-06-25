@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Admin view change history to companies' do
+xdescribe 'Admin view change history to companies' do
   it 'successfully' do
     admin = Admin.create!(name: 'Jane', email: 'jane@paynow.com.br',
                           occupation: 'Gerente', password: '123456')

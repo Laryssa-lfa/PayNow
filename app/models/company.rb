@@ -4,6 +4,10 @@ class Company < ApplicationRecord
   belongs_to :client
 
   has_many :ChangeHistoryToCompanies
+  has_many :payment_methods
+  has_many :boletos, through: :payment_methods
+  has_many :cards, through: :payment_methods
+  has_many :pixes, through: :payment_methods
 
   validates :cnpj, :corporate_name, :address,
             :email, :token, presence: true

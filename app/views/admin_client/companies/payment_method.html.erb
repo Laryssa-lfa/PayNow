@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="d-inline-block">
+    <h2>Ativar Meios de Pagamento</h2>
+    <br>
+
+    <% @boletos.each do |boleto| %>
+      <% if boleto.status %>
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h4 class="card-title">Boleto Bancário</h4>
+            <h4><small>Taxa: <%= number_to_percentage boleto.rate, precision: 2 %></small></h4>
+            <%= form_with model: boleto, html: { class: 'form-control' } do |form| %>
+              <%= form.label :bank_code, 'Código do Banco' %>
+              <%= form.text_field :bank_code %>
+              <%= form.label :bank_agency, 'Agência Bancária' %>
+              <%= form.text_field :bank_agency %>
+              <%= form.label :bank_account, 'Conta Bancária' %>
+              <%= form.text_field :bank_account %>
+              <br>
+              <%= form.submit 'Ativar Boleto', class: "btn btn-dark" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% @cards.each do |card| %>
+      <% if card.status %>
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h4 class="card-title">Cartão de Crédito</h4>
+            <h4><small>Bandeira: <%= card.card_name %></small></h4>
+            <h4><small>Taxa: <%= number_to_percentage card.rate, precision: 2 %></small></h4>
+            <%= form_with model: card, html: { class: 'form-control' } do |form| %>
+              <%= form.label :bank_agency, 'Código do Cartão' %>
+              <%= form.text_field :bank_agency %>
+              <br>
+              <%= form.submit 'Ativar Cartão', class: "btn btn-dark" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% @pixes.each do |pix| %>
+      <% if pix.status %>
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h4 class="card-title">PIX</h4>
+            <h4><small>Taxa: <%= number_to_percentage pix.rate, precision: 2 %></small></h4>
+            <%= form_with model: pix, html: { class: 'form-control' } do |form| %>
+              <%= form.label :code, 'Chave PIX' %>
+              <%= form.text_field :code %>
+              <%= form.label :bank_code, 'Código do Banco' %>
+              <%= form.text_field :bank_code %>
+              <br>
+              <%= form.submit 'Ativar PIX', class: "btn btn-dark" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

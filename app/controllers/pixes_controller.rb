@@ -1,5 +1,6 @@
 class PixesController < ApplicationController
-  before_action :authenticate_admin!, only: %i[index show new edit create update search_pix]
+  before_action :authenticate_admin!, only: %i[index new create search_boleto]
+  before_action :authenticate_client!, only: %i[edit update]
   before_action :set_pix, only: %i[show edit update]
 
   def index
@@ -33,8 +34,7 @@ class PixesController < ApplicationController
   def update
     @admin = current_admin
     @pix.update(pix_params)
-    #redirect_to search_path, notice: t('.success')
-    redirect_to search_payment_path, notice: 'PIX atualizado com sucesso'
+    redirect_to payment_method_admin_client_companies_path, notice: 'PIX ativado'
   end
   
   def search_pix

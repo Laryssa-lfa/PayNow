@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
-  before_action :authenticate_admin!, only: %i[index show new edit create update search_card]
+  before_action :authenticate_admin!, only: %i[index new create search_boleto]
+  before_action :authenticate_client!, only: %i[edit update]
   before_action :set_card, only: %i[show edit update]
 
   def index
@@ -33,8 +34,7 @@ class CardsController < ApplicationController
   def update
     @admin = current_admin
     @card.update(card_params)
-    #redirect_to search_path, notice: t('.success')
-    redirect_to search_payment_path, notice: 'Cartão de Crédito atualizado com sucesso'
+    redirect_to payment_method_admin_client_companies_path, notice: 'Cartão de Crédito ativado'
   end
 
   def search_card

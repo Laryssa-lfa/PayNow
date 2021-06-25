@@ -1,5 +1,6 @@
 class BoletosController < ApplicationController
-  before_action :authenticate_admin!, only: %i[index show new edit create update search_boleto]
+  before_action :authenticate_admin!, only: %i[index new create search_boleto]
+  before_action :authenticate_client!, only: %i[edit update]
   before_action :set_boleto, only: %i[show edit update]
 
   def index
@@ -33,8 +34,7 @@ class BoletosController < ApplicationController
   def update
     @admin = current_admin
     @boleto.update(boleto_params)
-    #redirect_to search_payment_path, notice: t('.success')
-    redirect_to search_payment_path, notice: 'Boleto atualizado com sucesso'
+    redirect_to payment_method_admin_client_companies_path, notice: 'Boleto ativado'
   end
 
   def search_boleto

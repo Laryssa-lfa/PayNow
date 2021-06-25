@@ -41,6 +41,12 @@ class AdminClient::CompaniesController < ApplicationController
     redirect_to admin_client_company_path(@company), notice: "Token atualizado"
   end
 
+  def payment_method
+    @boletos = Boleto.all
+    @cards = Card.all
+    @pixes = Pix.all
+  end
+
   private
 
   def company_params

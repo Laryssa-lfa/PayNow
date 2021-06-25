@@ -17,7 +17,7 @@
     <div class="container">
       <%= link_to 'Consultar Cobranças', '#', class: "btn btn-dark" %>
       <%= link_to 'Cadastrar Produtos', '#', class: "btn btn-dark" %>
-      <%= link_to 'Meios de Pagamento', '#', class: "btn btn-dark" %>
+      <%= link_to 'Meios de Pagamento', payment_method_admin_client_companies_path, class: "btn btn-dark" %>
       <%= link_to 'Perfil da Empresa', '#', class: "btn btn-dark" %>
 
       <% if Client.exists?(1) %>
