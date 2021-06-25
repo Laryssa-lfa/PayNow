@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       put 'new_token', on: :member
       get 'payment_method', on: :collection
     end
+    resources :products
     resources :clients
   end
 

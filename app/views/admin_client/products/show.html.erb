@@ -1,0 +1,25 @@
+<div class="container">
+  <br>
+  <div class="form-control">
+    <h2>
+      Detalhes <small class="text-muted"><%= @product.name %></small>
+    </h2>
+    <ul>
+      <li>Preço: <%= number_to_currency @product.price, unit: "R$ ", separator: "," %></li>
+      <li>Desconto: <%= number_to_currency @product.discount, unit: "R$ ", separator: "," %></li>
+      <li>Tipo de Pagamento: <%= @product.type_payment %></li>
+      <li>Token: <%= @product.token %></li>
+      <li>Criado em: <%= @product.created_at %></li>
+      <li>Atualizado em: <%= @product.updated_at %></li>
+    </ul>
+    <br>
+    <div class="d-inline-block">
+      <%= link_to 'Editar', edit_admin_client_product_path(@product), class: "btn btn-dark" %>
+      <%= link_to 'Apagar', admin_client_product_path(@product), method: :delete, class: "btn btn-dark" %>
+      <%= link_to 'Voltar', admin_client_products_path, class: "btn btn-dark" %>
+    </div>
+  </div>
+</div>
+
+
+<!-- > <% # TODO: melhorar a forma de mostrar as datas de criação e edição %> <-->

@@ -39,11 +39,11 @@ describe 'Admin_client view companies' do
     expect(current_path).to eq(root_path)
     expect(page).to have_content(admin_client.email)
     expect(page).to have_link('Consultar Cobranças')
-    expect(page).to have_link('Cadastrar Produtos')
+    expect(page).to have_link('Gerenciar Produtos')
     expect(page).to have_link('Meios de Pagamento')
     expect(page).to have_link('Gerenciar Funcionários(as)')
   end
-
+  
   it 'without admin_client' do
     admin_client = Client.create!(name: 'Maria', email: 'maria@codeplay.com.br',
                                   password: '123456', role: 0)

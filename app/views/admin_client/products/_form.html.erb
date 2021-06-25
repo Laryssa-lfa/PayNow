@@ -1,0 +1,32 @@
+<div class="container">
+  <% if product.errors.any? %>
+    <div id = "error_explanation">
+      <ul>
+        <% product.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: [:admin_client, product], html: { class: 'form-control' } do |form| %>
+    <div class="field">
+      <%= form.label :name, 'Nome: ' %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label :price, 'Preço: ' %>
+      <%= form.text_field :price %>
+    </div>
+    <div class="field">
+      <%= form.label :discount, 'Desconto: ' %>
+      <%= form.text_field :discount %>
+    </div>
+    <div class="field">
+      <%= form.label :type_payment, 'Tipo de pagamento: ' %>
+      <%= form.text_field :type_payment %>
+    </div>
+    <br>
+    <%= form.submit button_text, class: "btn btn-dark" %>
+  <% end %>
+</div>

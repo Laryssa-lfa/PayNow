@@ -1,0 +1,22 @@
+<div class="container">
+  <br>
+  <%= link_to 'Cadastrar Produtos', new_admin_client_product_path, class: "btn btn-dark" %>
+  <br>
+  <% if @products.empty? %>
+    <h2>Não tem Produtos Disponíveis</h2>
+  <% else %>
+    <h2>Produtos Disponíveis</h2>
+  <% end %>
+
+  <% @products.each do |product| %>
+    <div class="form-control">
+      <ul>
+        <li><h4>Nome: <%= link_to product.name, admin_client_product_path(product) %></h4></li>
+        <li><h4>Preço: <%= number_to_currency product.price, unit: "R$ ", separator: "," %></h4></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+
+<!-- > <% # TODO: melhorar a forma de mostrar as datas de criação e edição %> <-->
