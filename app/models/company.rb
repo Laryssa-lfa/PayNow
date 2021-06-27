@@ -1,6 +1,6 @@
-require 'securerandom'
-
 class Company < ApplicationRecord
+  before_create :generate_token
+
   belongs_to :client
 
   has_many :ChangeHistoryToCompanies
@@ -13,7 +13,7 @@ class Company < ApplicationRecord
   has_many :end_clients, through: :company_end_clients
 
   validates :cnpj, :corporate_name, :address,
-            :email, :token, presence: true
+            :email, presence: true
   validates :cnpj, :token,  :corporate_name, uniqueness: true
 
   def view_status

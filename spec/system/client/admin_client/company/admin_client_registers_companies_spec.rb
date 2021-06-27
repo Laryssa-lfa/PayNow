@@ -49,7 +49,7 @@ describe 'Admin_client registers companies' do
                                   password: '123456', role: 1)
     Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902',
                     address: 'Rua Nova, N: 200', email: 'sac@codeplay.com.br',
-                    client_id: admin_client.id, token: '1a2s3d4f5g6h7j8k9l')
+                    client_id: admin_client.id)
 
     login_as admin_client, scope: 'client'
     visit new_admin_client_company_path
@@ -68,7 +68,7 @@ describe 'Admin_client registers companies' do
                                   password: '123456', role: 0)
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902',
                               address: 'Rua Nova, N: 200', email: 'sac@codeplay.com.br',
-                              client_id: admin_client.id, token: '1a2s3d4f5g6h7j8k9l')
+                              client_id: admin_client.id)
     
     login_as admin_client, scope: 'client'
     visit new_admin_client_company_path

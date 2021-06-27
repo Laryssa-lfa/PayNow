@@ -8,7 +8,7 @@ describe 'Admin view companies' do
                             password: '123456', role: 1)
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
-                              email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
+                              email: 'sac@codeplay.com.br')
 
     login_as admin, scope: 'admin'
     visit root_path
@@ -29,7 +29,7 @@ describe 'Admin view companies' do
                             password: '123456', role: 1)
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
-                              email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
+                              email: 'sac@codeplay.com.br')
 
     login_as admin, scope: 'admin'
     visit employee_companies_path
@@ -57,7 +57,7 @@ describe 'Admin view companies' do
                             password: '123456', role: 1)
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
-                              email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
+                              email: 'sac@codeplay.com.br')
 
     login_as admin, scope: 'admin'
     visit root_path
@@ -90,7 +90,7 @@ describe 'Admin view companies' do
                             password: '123456', role: 1)
     company = Company.create!(corporate_name: 'Codplay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
-                              email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
+                              email: 'sac@codeplay.com.br')
 
     visit employee_companies_path
 

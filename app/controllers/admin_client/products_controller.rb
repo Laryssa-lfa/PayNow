@@ -19,7 +19,6 @@ class AdminClient::ProductsController < ApplicationController
     @company = current_client.company_ids
     @product = Product.new(product_params)
     @product.company_id = @company[0]
-    @product.generate_token
 
     if @product.save
       redirect_to admin_client_product_path(@product), notice: "Produto cadastrado com sucesso"

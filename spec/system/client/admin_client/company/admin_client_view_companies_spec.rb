@@ -6,7 +6,7 @@ describe 'Admin_client view companies' do
                                   password: '123456', role: 1)
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: admin_client.id, address: 'Rua Nova, N: 200',
-                              email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
+                              email: 'sac@codeplay.com.br')
 
     login_as admin_client, scope: 'client'
     visit admin_client_company_path(company)
@@ -21,7 +21,7 @@ describe 'Admin_client view companies' do
     expect(page).to have_content('Status')
     expect(page).to have_content('Empresa habilitada')
     expect(page).to have_content('Token')
-    expect(page).to have_content('1a2s3d4f5g6h7j8k9l')
+    expect(page).to have_content(company.token)
     expect(page).to have_link('Solicitar Novo Token')
   end
 
@@ -30,7 +30,7 @@ describe 'Admin_client view companies' do
                             password: '123456', role: 1)
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: admin_client.id, address: 'Rua Nova, N: 200',
-                              email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
+                              email: 'sac@codeplay.com.br')
 
     login_as admin_client, scope: 'client'
     visit admin_client_company_path(company)
@@ -49,7 +49,7 @@ describe 'Admin_client view companies' do
                                   password: '123456', role: 0)
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: admin_client.id, address: 'Rua Nova, N: 200',
-                              email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l')
+                              email: 'sac@codeplay.com.br')
 
     login_as admin_client, scope: 'client'
     visit admin_client_company_path(company)

@@ -20,7 +20,6 @@ class Employee::CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.client_id = @client.id
     @company.status = true
-    @company.generate_token
     @change_history_to_company = ChangeHistoryToCompany.create(@company)
 
     if @company.save

@@ -6,10 +6,10 @@ describe 'Client updates products' do
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l1')
-    product = Product.create!(name: 'Ruby', price: '20', token: '1a2s3d4f5g6h7j8k9l0',
-                              type_payment: 'PIX', company_id: company.id)
-    product2 = Product.create!(name: 'Rails Tests', price: '20', token: 'g6h7j8k9l01a2s3d4f5',
-                               discount: '10', type_payment: 'Boleto Bancário', company_id: company.id)
+    product = Product.create!(name: 'Ruby', price: '20', type_payment: 'PIX',
+                              company_id: company.id)
+    product2 = Product.create!(name: 'Rails Tests', price: '20', discount: '10',
+                               type_payment: 'Boleto Bancário', company_id: company.id)
 
     login_as client, scope: 'client'
     visit root_path
@@ -25,7 +25,8 @@ describe 'Client updates products' do
     expect(page).to have_content('Preço: R$ 30,00')
     expect(page).to have_content('Desconto: R$ 10,00')
     expect(page).to have_content('Tipo de Pagamento: PIX')
-    expect(page).to have_content('Token: 1a2s3d4f5g6h7j8k9l0')
+    expect(page).to have_content('Token:')
+    expect(page).to have_content(product.token)
     expect(page).to have_content('Criado em:')
     expect(page).to have_content(product.created_at)
     expect(page).to have_content('Atualizado em:')
@@ -40,8 +41,8 @@ describe 'Client updates products' do
     company = Company.create!(corporate_name: 'CodePlay', cnpj: '12345678902', status: true,
                               client_id: client.id, address: 'Rua Nova, N: 200',
                               email: 'sac@codeplay.com.br', token: '1a2s3d4f5g6h7j8k9l1')
-    product = Product.create!(name: 'Ruby', price: '20', token: '1a2s3d4f5g6h7j8k9l0',
-                              type_payment: 'PIX', company_id: company.id)
+    product = Product.create!(name: 'Ruby', price: '20', type_payment: 'PIX',
+                              company_id: company.id)
 
     visit edit_admin_client_product_path(product)
 
