@@ -9,6 +9,8 @@ class Company < ApplicationRecord
   has_many :cards, through: :payment_methods
   has_many :pixes, through: :payment_methods
   has_many :products
+  has_many :company_end_clients
+  has_many :end_clients, through: :company_end_clients
 
   validates :cnpj, :corporate_name, :address,
             :email, :token, presence: true

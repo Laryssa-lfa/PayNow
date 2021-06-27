@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_020401) do
+ActiveRecord::Schema.define(version: 2021_06_27_040506) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -90,6 +90,24 @@ ActiveRecord::Schema.define(version: 2021_06_25_020401) do
     t.index ["client_id"], name: "index_companies_on_client_id"
   end
 
+  create_table "company_end_clients", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "end_client_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_company_end_clients_on_company_id"
+    t.index ["end_client_id"], name: "index_company_end_clients_on_end_client_id"
+  end
+
+  create_table "end_clients", force: :cascade do |t|
+    t.string "name"
+    t.integer "cpf"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "company_token"
+  end
+
   create_table "payment_methods", force: :cascade do |t|
     t.integer "company_id", null: false
     t.integer "boleto_id", null: false
@@ -130,6 +148,8 @@ ActiveRecord::Schema.define(version: 2021_06_25_020401) do
   add_foreign_key "cards", "admins"
   add_foreign_key "change_history_to_companies", "companies"
   add_foreign_key "companies", "clients"
+  add_foreign_key "company_end_clients", "companies"
+  add_foreign_key "company_end_clients", "end_clients"
   add_foreign_key "payment_methods", "boletos"
   add_foreign_key "payment_methods", "cards"
   add_foreign_key "payment_methods", "companies"

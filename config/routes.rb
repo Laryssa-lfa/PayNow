@@ -29,4 +29,10 @@ Rails.application.routes.draw do
   get 'search_boleto', to:"boletos#search_boleto"
   get 'search_card', to:"cards#search_card"
   get 'search_pix', to:"pixes#search_pix"
+
+  namespace :api do
+    namespace :v1 do
+      resources :end_clients, only: %i[create]
+    end
+  end
 end
