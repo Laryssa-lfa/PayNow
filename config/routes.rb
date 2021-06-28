@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :end_clients, only: %i[create]
+      resources :billing_issues, only: %i[index show create], param: :token
     end
   end
 end
