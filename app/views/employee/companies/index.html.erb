@@ -9,14 +9,15 @@
 
     <% @companies.each do |company| %>
       <div class="d-inline-block">
-        <div class="card text-center" style="width: 18rem;">
+        <div class="card text-center" style="width: 30rem;">
           <div class="card-body">
-            <h5 class="card-title"><%= company.corporate_name %></h5>
+            <h4 class="card-title"><%= company.corporate_name %></h4>
             <%= link_to 'Renovar Token', new_token_employee_company_path(company), method: :put, class: "btn btn-dark btn-sm" %>
             <%= link_to 'Suspender', '#', class: "btn btn-dark btn-sm" %>
             <%= link_to 'Editar', edit_employee_company_path(company), class: "btn btn-dark btn-sm" %>
             <%= link_to 'Detalhes', employee_company_path(company), class: "btn btn-dark btn-sm" %>
-            <%= link_to 'Histórico de Alterações', controller: "employee/change_history_to_companies", query: "#{company.corporate_name}", class: "btn btn-dark btn-sm" %>
+            <br>
+            <%= link_to 'Histórico de Alterações', controller: "employee/change_history_to_companies", query: "#{company.corporate_name}", class: "text-dark" %>
           </div>
         </div>
       </div>

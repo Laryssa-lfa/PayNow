@@ -1,0 +1,23 @@
+<div class="container">
+  <br>
+  <h2>Histórico dos Pagamentos</h2>
+
+  <div class="form-control">
+    <% @payment_confirmations.each do |payment| %>
+      <div class="d-inline-block">
+        <div class="card text-left" style="width: 35rem;">
+          <div class="card-body">
+            <h5 class="card-title">Token da efetivação: <%= payment.token %></h5>
+              <h6><%= 'Código do status: 01 - Pendente de cobrança' if payment.status_code == "01" %></h6>
+              <h6><%= 'Código do status: 05 - Cobrança efetivada com sucesso' if payment.status_code == "05" %></h6>
+              <h6><%= 'Código do status: 09 - Cobrança recusada por falta de créditos' if payment.status_code == "09" %></h6>
+              <h6><%= 'Código do status: 10 - Cobrança recusada por dados incorretos para cobrança' if payment.status_code == "10" %></h6>
+              <h6><%= 'Código do status: 11 - Cobrança recusada sem motivo especificado' if payment.status_code == "11" %></h6>
+              <h6>Data da efetivação: <%= payment.payment_date %></h6>
+              <h6>Token da cobrança: <%= payment.billing_token %></h6>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

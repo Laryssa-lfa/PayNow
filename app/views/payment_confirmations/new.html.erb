@@ -1,0 +1,35 @@
+<div class="container">
+  <br>
+  <h2>Cobranças Disponíveis</h2>
+
+  <div class="form-control">
+    <% @billing_issues.each do |billing| %>
+      <div class="d-inline-block">
+        <div class="card text-left" style="width: 35rem;">
+          <div class="card-body">
+            <h4 class="card-title">Token de cobrança: <%= billing.token %></h4>
+            <h6 class="card-title">Status: <%= billing.status ? "Aprovado" : "Pendente" %></h6>
+            <%= form_with model: @payment_confirmation, html: { class: 'form-control' } do |form| %>
+              <div>
+                <%= form.label :status_code, "Selecione o código referente as opções:" %>
+                <%= form.select :status_code, ['01', '05', '09', '10', '11'] %>
+                <ul>
+                  <li>01 - Pendente de cobrança</li>
+                  <li>05 - Cobrança efetivada com sucesso</li>
+                  <li>09 - Cobrança recusada por falta de créditos</li>
+                  <li>10 - Cobrança recusada por dados incorretos para cobrança</li>
+                  <li>11 - Cobrança recusada sem motivo especificado</li>
+                </ul>
+              </div>
+              <div>
+                <%= form.label :billing_token, 'Token da cobrança:' %>
+                <%= form.text_field :billing_token, size: 25 %>
+              </div>
+              <%= form.submit 'Confirmar', class: "btn btn-dark btn-sm" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

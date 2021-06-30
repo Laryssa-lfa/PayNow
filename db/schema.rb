@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_28_023426) do
+ActiveRecord::Schema.define(version: 2021_06_28_055649) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -123,6 +123,15 @@ ActiveRecord::Schema.define(version: 2021_06_28_023426) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "company_token"
+  end
+
+  create_table "payment_confirmations", force: :cascade do |t|
+    t.string "status_code"
+    t.string "payment_date"
+    t.string "billing_token"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "payment_methods", force: :cascade do |t|

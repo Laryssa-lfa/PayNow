@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :boletos, only: %i[index new create edit update search_boleto]
   resources :cards, only: %i[index new create edit update search_card]
   resources :pixes, only: %i[index new create edit update search_pix]
+  resources :payment_confirmations, only: %i[index new create]
 
   get 'search_payment', to:"admins#search_payment"
   get 'search_boleto', to:"boletos#search_boleto"
